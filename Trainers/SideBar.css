@@ -1,0 +1,451 @@
+
+.body {
+    background-color: #1A1A1A;
+    margin: 0;
+    padding: 0;
+}
+
+/*  ----------------------    ADMIN SIDEBAR  -----------------  */
+
+.sidebar {
+    position: fixed;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 250px;
+    height: 95%; /* temporary lang di kasi kita sakin kapag naka 100% */
+    background-color: #1A1A1A;
+    border: 2px solid #F43F3F;
+    border-radius: 15px;
+}
+
+.sidebar a {
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.sidebar .nav-link:hover {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-left: 5px;
+}
+
+.sidebar {
+  transition: width 0.3s ease;
+}
+
+/* collapsed state ng sidebar */
+.sidebar.collapsed {
+  width: 90px; /*pang icon sizing kapag nag collapse*/
+  transition: width 0.3s ease;
+}
+
+/* itago yung text kapag collapsed */
+.sidebar.collapsed .text,
+.sidebar.collapsed .description {
+  display: none;
+}
+
+/* center align icons kapag collapsed */
+.sidebar.collapsed .nav-link {
+  justify-content: center;
+}
+
+/*LOGO*/
+
+#logo {
+     display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+/* smooth resize para sa logo */
+#logo img {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* kapag sidebar naka-collapse */
+.sidebar.collapsed #logo img {
+  width: 50px;   /* same size ng icons mo */
+  height: 50px;
+  justify-content: left;
+}
+
+/*DASHBOARD*/
+
+#dashboard:hover {
+    color: #F43F3F;
+}
+
+#dashboard .icon {
+    font-size: 25px;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+#dashboard .icon:hover {
+    color: #F43F3F 
+}
+
+#dashboard .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+/*USERS*/
+
+#users .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#users .icon:hover {
+    color: #F43F3F;
+}
+
+#users .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+
+#users .description:hover {
+    color: #F43F3F;
+}
+
+/* USERS - Submenu */
+#submenu {
+    background-color: #1A1A1A;
+}
+
+#submenu .text:hover {
+    color: #F43F3F
+}
+
+#submenu .text {
+    display: block;
+    font-size: 16px;
+    color: #fafafa;
+}
+
+/*LOG & TRACK*/
+
+#logtrack:hover {
+    color: #F43F3F;
+}
+#logtrack .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#logtrack .icon:hover {
+    color: #F43F3F;
+}
+
+#logtrack .text {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+/*PROFILE*/
+
+#profile {
+    position: absolute;
+    margin-top: 750px; /*temporarygawa lang to kasi di ko pa alam kung anong height ng sidebar*/
+    width: 100%;
+    cursor: pointer;
+}
+
+#profile:hover {
+    color: #F43F3F;
+}
+
+#profile .icon i {
+    font-size: 30px;       
+    margin-bottom: 5px;    
+    color: #fafafa; 
+}
+
+#profile .icon i:hover {
+    color: #F43F3F 
+}
+
+#profile .text::after {
+    content: "Trainer";   
+    margin-left: 5px;
+    font-size: 14px;     
+    color: #ad9393;      
+}
+
+/*LOGOUT*/
+
+#logout {
+    position: absolute;
+    margin-top: 800px; /*temporarygawa lang to kasi di ko pa alam kung anong height ng sidebar*/
+    width: 100%;
+}
+
+#logout .icon {
+    font-size: 30px;
+    color: #fafafa;
+    margin-right: 10px;
+}
+
+#logout .icon:hover {
+    color: #F43F3F;
+}
+
+#logout .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+}
+
+#logout:hover {
+    color: #F43F3F;
+}
+
+/*  ---------------------- TRAINER SIDE BAR -----------------  */
+
+#profile .texts::after {
+    content: "trainer";
+    margin-left: 5px;
+    font-size: 14px;     
+    color: #ad9393;     
+    margin-top: 2px;  
+}
+
+/*CLIENTS*/
+
+#clients:hover {
+    color: #F43F3F;
+}
+
+#clients .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#clients .icon:hover {
+    color: #F43F3F;
+}
+
+#clients .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*MESSAGES*/
+
+#messages:hover {
+    color: #F43F3F;
+}
+
+#messages .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#messages .icon:hover {
+    color: #F43F3F;
+}
+
+#messages .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*  ---------------------- CLIENT SIDE BAR -----------------  */
+
+#profile .profile-text::after {
+    content: "client";
+    margin-left: 5px;
+    font-size: 14px;     
+    color: #ad9393;      
+}
+
+/*HEALTH HISTORY*/
+
+#health:hover {
+    color: #F43F3F;
+}
+
+#health .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#health .icon:hover {
+    color: #F43F3F;
+}
+
+#health .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*RECOMMENDED VIDEOS*/
+
+#reco:hover {
+    color: #F43F3F;
+}
+
+#reco .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#reco .icon:hover {
+    color: #F43F3F;
+}
+
+#reco .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*DIET PLAN*/
+
+#planner:hover {
+    color: #F43F3F;
+}
+
+#planner .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#planner .icon:hover {
+    color: #F43F3F;
+}
+
+#planner .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*MESSAGES*/
+
+#client-messages:hover {
+    color: #F43F3F;
+}
+
+#client-messages .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#client-messages .icon:hover {
+    color: #F43F3F;
+}
+
+#client-messages .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*SETTINGS*/
+
+#settings:hover {
+    color: #F43F3F;
+}
+
+#settings .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#settings .icon:hover {
+    color: #F43F3F;
+}
+
+#settings .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*ARCHIVE*/
+
+#archive:hover {
+    color: #F43F3F;
+}
+
+#archive .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#archive .icon:hover {
+    color: #F43F3F;
+}
+
+#archive .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/* ---------------- Responsive Sidebar ---------------- */
+
+/* Tablet & Mobile (<=1024px): sidebar hidden by default */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: block;
+    position: relative;
+    width: 90%;
+    margin: 10px 20px;
+    border-radius: 10px;
+
+    /* animation defaults */
+    max-height: 0;        /* nakatago */
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+
+  .sidebar.active {
+    max-height: 600px;    /* lalabas */
+    opacity: 1;
+  }
+
+  .sidebar .nav-link {
+    justify-content: flex-start;
+    padding: 10px 12px;
+    border-bottom: 1px solid #333;
+  }
+
+  #profile,
+  #logout {
+    position: relative;
+    margin-top: 2px;
+    padding: 10px 12px;
+  }
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Health Assessment Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Form.css">
+</head>
+<body>
+    <div class="container-fluid px-0">
+        <!-- HEADER SECTION -->
+        <h1 class="main-header">Welcome to Your <span class="assessment">Gym Assessment</span></h1>
+        <hr class="divider">
+        <p class="header-desc">Stay on track with your fitness journey by updating your health and dietary progress regularly. 
+            This form helps you regularly track your weight, dietary habits, and overall gym progress.</p>
+        <p class="header-note">Note: This assessment will appear every week to help keep your records up to date and ensure your fitness plan is aligned with your goals.</p>
+
+        <form class="p-5">
+             <!---------------------- PERSONAL INFORMATION ---------------------->
+
+            <div class="form-container mb-4">
+                <div class="section-title">PERSONAL INFORMATION</div>
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="fullName">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" for="dob">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" placeholder="MM/DD/YYYY" required>
+                    </div>
+                </div>
+
+              <!---------------------- GENDER CHECKBOX ---------------------->
+
+                <div class="row mb-3 align-items-center">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label d-block">Sex</label>
+                    <div class="form-check form-check-inline sex-checkbox">
+                        <input class="form-check-input" type="checkbox" id="male" name="sex">
+                        <label class="form-check-label gender" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline sex-checkbox">
+                        <input class="form-check-input" type="checkbox" id="female" name="sex">
+                        <label class="form-check-label gender" for="female">Female</label>
+                    </div>
+                </div>
+                
+                  <!---------------------- HEIGHT AND WEIGHT ---------------------->
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label" for="height">Height (cm)</label>
+                        <input type="number" class="form-control" id="height" min="0" placeholder="e.g. 170" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label" for="weight">Weight (kg)</label>
+                        <input type="number" class="form-control" id="weight" min="0" placeholder="e.g. 65" required>
+                    </div>
+                </div>
+            </div>
+
+            <!---------------------- ASSESSMENT SECTION ---------------------->
+
+            <div class="form-container">
+                <div class="section-title">ASSESSMENT</div>
+
+                 <!---------------------- DIETARY QUESTIONS SECTION ---------------------->
+
+                <div class="question-section-title">Dietary Behavior</div>
+
+                <!-- DIET O1 --> 
+
+                <div class="question-container">
+                    <label class="form-label mb-2">1. How many meals do you usually have per day?</label>
+                    <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="meal-one" name="meals">
+                        <labelc id="choice01" class="form-check-label" for="meal-one">1 meal</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="meal-two" name="meals">
+                        <label id="choice01" class="form-check-label" for="meal-two">2 meals</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="meal-three" name="meals">
+                        <label id="choice01" class="form-check-label" for="meal-three">3 meals</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="more-than-one" name="meals">
+                        <label id="choice01" class="form-check-label" for="more-than-one">More than 3 meals</label>
+                    </div>
+                </div>
+
+                 <!-- DIET O2 --> 
+
+                <div class="question-container">
+                    <label class="form-label mb-2">2. What is your usual source of Carbohydrates? 
+                    <span class="italic-note ms-1">(Select all that apply)</span></label>
+                      <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label" for="carb-source">Rice</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label" for="carb-source">Bread</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label" for="carb-source">Pasta/Noodles</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label" for="carb-source">Root Crops (e.g., sweet potato, cassava)</label>
+                    </div>
+                    <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label ms-1" for="carb-source">Other:</label>
+                        <input type="text" class="underline-input" placeholder="">
+                        <span class="specify-note">(please specify)</span>
+                    </div>
+                </div>
+
+                 <!-- DIET O3 --> 
+
+                <div class="question-container">
+                    <label class="form-label mb-2">3. What is your preffered diet plan?</label>
+                    <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet-plan" name="meals">
+                        <label id="choice01" class="form-check-label" for="pref-diet-plan">High Protein</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet-plan" name="meals">
+                        <label id="choice01" class="form-check-label" for="pref-diet-plan">Balanced Nutrients</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet-plan" name="meals">
+                        <label id="choice01" class="form-check-label" for="pref-diet-plan">Low Carb</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet-plan" name="meals">
+                        <label id="choice01" class="form-check-label" for="pref-diet-plan">Low Fat</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet-plan" name="meals">
+                        <label id="choice01" class="form-check-label" for="pref-diet-plan">No Preference</label>
+                    </div>
+                </div>
+
+                 <!-- DIET O4 --> 
+
+                <div class="question-container">
+                    <label class="form-label mb-2">4. What are your Dietary Preferences?</label>
+                    <span class="italic-note">Select all that apply</span>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet" name="preference">
+                        <label id="choice01" class="form-check-label" for="pref-diet">Omnivore (Meals + Vegetables)</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet" name="preference">
+                        <label id="choice01" class="form-check-label" for="pref-diet">Vegetarian (No Meats, may eat Diary/Eggs)</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet" name="preference">
+                        <label id="choice01" class="form-check-label" for="pref-diet">Vegan (Vegetables Only, No meats)</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="pref-diet" name="preference">
+                        <label id="choice01" class="form-check-label" for="pref-diet">Pescatarain (Vegan + Fish)</label>
+                    </div>
+                </div>
+
+                 <!-- DIET O5 --> 
+
+                <div class="question-container">
+                    <label class="form-label mb-2">5.Do you have any dietary restrictions or Food Allergies?</label>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="allergies" name="allergy">
+                        <label id="choice01" class="form-check-label" for="allergies">None</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="allergies" name="allergy">
+                        <label id="choice01" class="form-check-label" for="allergies">Diary</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="allergies" name="allergy">
+                        <label id="choice01" class="form-check-label" for="allergies">Nuts</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="allergies" name="allergy">
+                        <label id="choice01" class="form-check-label" for="allergies">Seafood</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="allergies" name="allergy">
+                        <label id="choice01" class="form-check-label" for="allergies">Vegan</label>
+                    </div>
+                    <div class="form-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="allergies" name="allergy">
+                        <label id="choice01" class="form-check-label" for="allergies">Gluten-Free</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label ms-1" for="carb-source">Other:</label>
+                        <input type="text" class="underline-input" placeholder="">
+                        <span class="specify-note">(please specify)</span>
+                    </div>
+                </div>
+
+                 <!---------------------- FITNESS GOAL QUESTION SECTION ---------------------->
+
+                <div class="question-section-title">Fitness Goals</div>
+
+                 <!-- FITNESS O1 -->
+
+                <div class="question-container">
+                    <label class="form-label mb-2">1. What is your main goal? 
+                        <span class="italic-note">(Select 2-3 Goals)</span>
+                    </label>
+
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="main-goal" name="goal">
+                        <label id="fitness-choices" class="form-check-label" for="main-goal">Lose Weight</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="main-goal" name="goal">
+                        <label id="fitness-choices" class="form-check-label" for="main-goal">Maintain Weight</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="main-goal" name="goal">
+                        <label id="fitness-choices" class="form-check-label" for="main-goal">Gain Weight</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="main-goal" name="goal">
+                        <label id="fitness-choices" class="form-check-label" for="main-goal">Build Muscle and Strenght</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="main-goal" name="goal">
+                        <label id="fitness-choices" class="form-check-label" for="main-goal">Tone Specific Areas</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="main-goal" name="goal">
+                        <label id="fitness-choices" class="form-check-label" for="main-goal">Improve Overall Fitness</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="main-goal" name="goal">
+                        <label id="fitness-choices" class="form-check-label" for="main-goal">Manage Stress</label>
+                    </div>
+                </div>
+
+                <!-- FITNESS O2 -->
+
+                <div class="question-container">
+                    <label class="form-label mb-2">2. What is your Current Activity Level?</label>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="activity-level" name="act-level">
+                        <label id="fitness-choices" class="form-check-label" for="activity-level">Sedentary - Little to no physical activity (e.g., mostly sitting, no regular exercise)</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="activity-level" name="act-level">
+                        <label id="fitness-choices" class="form-check-label" for="activity-level">Lightly Active - Light physical activity (e.g., walking, light chores, occasional exercise 1-2 times a week) </label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="activity-level" name="act-level">
+                        <label id="fitness-choices" class="form-check-label" for="activity-level">Moderately Active - Regular moderate exercise (e.g., brisk walking, workouts 3-4 times a week) </label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="activity-level" name="act-level">
+                        <label id="fitness-choices" class="form-check-label" for="activity-level">Very Active - Intense physical activity most days of the week (e.g., sports, gym, 5+ times a week) </label>
+                    </div>
+                </div>
+
+                <!-- FITNESS O3 -->
+
+                <div class="question-container">
+                    <label class="form-label mb-2">3. What challenges have you faced in your past attempts to exercise?</label>
+
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Lack of time for regular exercise </label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Difficulty following a consistent diet</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Lack of Motivation</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Stress or Emotional Eating</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Medical Conditions (e.g., hormonal imbalance, thyroid issues)</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Limited access to health food options</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Lack of support from family or friends</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Confusion about which diet or fintess plan to follow</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Cost of gym memberships or fitness programs</label>
+                    </div>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="past-challenges" name="challenges">
+                        <label id="fitness-choices" class="form-check-label" for="past-challenges">Slow or no visible results leading to discouragement</label>
+                    </div>
+                      <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label ms-1" for="carb-source">Other:</label>
+                        <input type="text" class="underline-input" placeholder="">
+                        <span class="specify-note">(please specify)</span>
+                    </div>
+                </div>
+
+                <!-- FITNESS O4 -->
+
+                <div class="question-container">
+                    <label class="form-label mb-2">What is your target weight?</label>
+                    <div class="form-check fitness-checkbox">
+                        <label id="fitness-choices" class="form-check-label" for="target-weight">Answer:</label>
+                        <input type="text" class="underline-input ms-2"> 
+                    </div>
+                </div>
+
+                <!-- FITNESS O5 -->
+                 
+                <div class="question-container">
+                    <label class="form-label mb-2">5. How many days or weeks would you like to commit to working out?
+                        <span class="italic-note ms-1">(Choose a plan that fits your lifestyle and keeps you moving)</span>
+                    </label>
+                     <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="commit-workout" name="commitment">
+                        <label id="fitness-choices" class="form-check-label" for="commit-workout">1-2 days per week - Just getting stated or maintaining light activity</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="commit-workout" name="commitment">
+                        <label id="fitness-choices" class="form-check-label" for="commit-workout">3-4 days per week - Building consistency ang seeing steady progress</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="commit-workout" name="commitment">
+                        <label id="fitness-choices" class="form-check-label" for="commit-workout">5-6 days per week - Strong commitment to fitness and faster results</label>
+                    </div>
+                    <div class="form-check fitness-checkbox">
+                        <input class="fitness-form-check-input" type="checkbox" id="commit-workout" name="commitment">
+                        <label id="fitness-choices" class="form-check-label" for="commit-workout">Everyday (7 days a week)- Highly motivated, with varied workouts and rest included</label>
+                    </div>
+                </div>
+
+                 <!---------------------- HEALTH RISK/FACTIOR INFORMATION SECTION ---------------------->
+
+                <div class="question-section-title">Health Information Risks/Factors</div>
+
+                 <!-- HEALTH INFO O1 --> 
+
+                <div class="question-container">
+                    <label class="form-label mb-2">1. Do you have any health conditions?
+                        <span class="italic-note">Check all that apply</span>
+                    </label>
+
+                     <div class="form-check health-checkbox">
+                        <input class="health-form-check-input" type="checkbox" id="health-condition" name="health-condi">
+                        <label id="health-choices" class="form-check-label" for="health-conditon">Hypertension</label>
+                    </div>
+                    <div class="form-check health-checkbox">
+                        <input class="health-form-check-input" type="checkbox" id="health-condition" name="health-condi">
+                        <label id="health-choices" class="form-check-label" for="health-conditon">Asthma</label>
+                    </div>
+                    <div class="form-check health-checkbox">
+                        <input class="health-form-check-input" type="checkbox" id="health-condition" name="health-condi">
+                        <label id="health-choices" class="form-check-label" for="health-conditon">Diabetes</label>
+                    </div>
+                    <div class="form-check health-checkbox">
+                        <input class="health-form-check-input" type="checkbox" id="health-condition" name="health-condi">
+                        <label id="health-choices" class="form-check-label" for="health-conditon">High Cholesterol</label>
+                    </div>
+                    <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label ms-1" for="carb-source">Other:</label>
+                        <input type="text" class="underline-input" placeholder="">
+                        <span class="specify-note">(please specify)</span>
+                    </div>
+                </div>
+
+                 <!-- HEALTH INFO O2 --> 
+
+                <div class="question-container">
+                    <label class="form-label mb-2">2. Any past injuries or linmitations we should know about?</label>
+                   <div class="form-check health-checkbox">
+                        <input class="health-form-check-input" type="checkbox" id="health-condition" name="health-condi">
+                        <label id="health-choices" class="form-check-label" for="health-conditon">Yes</label>
+                    </div>
+                    <div class="form-check health-checkbox">
+                        <input class="health-form-check-input" type="checkbox" id="health-condition" name="health-condi">
+                        <label id="health-choices" class="form-check-label" for="health-conditon">No</label>
+                    </div>
+                     <div class="forms-check diet-checkbox">
+                        <input class="diet-form-check-input" type="checkbox" id="carb-source" name="meals">
+                        <label id="choice01" class="form-check-label ms-1" for="carb-source">Other:</label>
+                        <input type="text" class="underline-input" placeholder="">
+                        <span class="specify-note">(please specify)</span>
+                    </div>
+                </div>
+            </div>
+            <a type="submit" class="submit-btn mt-4" href="Thankyou.html">Submit</a>
+        </form>
+    </div>
+
+     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"> </script>
+    
+</body>
+</html>

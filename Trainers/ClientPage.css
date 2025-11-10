@@ -1,0 +1,483 @@
+/* Page scrolling fix for mobile */
+@media (max-width: 768px) {
+  body {
+    overflow-y: scroll !important;
+    height: auto !important;
+  }
+  
+  .main-container {
+    height: auto !important;
+    min-height: calc(100vh - 60px);
+  }
+}
+
+    /* HEADER */
+
+    h1 {
+      color: #FFFFFF;
+      font-weight: bold;
+      font-size: 32px;
+      margin-top: 5px;
+    }
+
+    /* -- SEARCH BAR --  */
+
+    .search-bar {
+      background-color: transparent;
+      border: 1px solid #9E0A0A;
+      border-radius: 15px;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      width: 250px;
+    }
+    .search-bar input {
+      background: none;
+      border: none;
+      outline: none;
+      color: #FFFFFF;
+      width: 100%;
+      margin-left: 10px;
+    }
+    .search-bar input::placeholder {
+      color: #636363;
+    }
+
+    .bi-search {
+        margin-left: 5px;
+    }
+
+    /* -- SORTING -- */
+    .sort-btn {
+      background-color: #9E0A0A;
+      color: white;
+      border-radius: 15px;
+      border: none;
+      padding: 8px 16px;
+      font-size: 15px;
+      font-weight: 200;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* -- TABLES  -- */
+    .table-container {
+      background-color: #313131;
+      margin-top: 20px;
+      height: calc(100vh - 180px); /* Fixed size, responsive height */
+      overflow-y: auto;
+      border-radius: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    thead {
+      background-color: #9E0A0A;
+      color: white;
+      position: sticky;
+      top: 0;
+      ;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      color: white;
+    }
+    tbody tr {
+      background-color: #313131;
+    }
+
+    /* -- SORTING DROP DOWN -- */
+    .dropdown-menu {
+      min-width: 150px;
+      background-color: #1A1A1A;
+      border: 1px solid #9E0A0A;
+    }
+
+    #choices {
+      color: white;
+    }
+
+    #choices:hover {
+      color: white;
+      background-color: #313131;
+    }
+
+     #list-choices {
+      color: white;
+    }
+
+    #list-choices:hover {
+      color: white;
+      background-color: #313131;
+    }
+
+  /* ---------------------- MODAL FOR CLIENT PROGRESS -------------------------- */
+
+  .progress-modal {
+    background-color: #1a1a1a;
+    border: 2px solid #666363;
+    border-radius: 12px;
+    padding: 20px;
+    width: auto;
+    max-width: 95%; 
+    margin: auto;
+  }
+
+  /* Headers (bold text) */
+  .progress-modal h5,
+  .progress-modal h6 {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  /* Simple text */
+  .progress-modal p,
+  .progress-modal small,
+  .progress-modal li {
+    color: #e0e0e0;
+    margin-bottom: 4px;
+  }
+
+  /* Responsive Font Sizes */
+  .progress-modal h5 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+  .progress-modal h6 { font-size: clamp(1rem, 1.8vw, 1.3rem); }
+  .progress-modal p,
+  .progress-modal li,
+  .progress-modal small { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
+
+  /* Upcoming session spacing */
+  #upcomingSessions li {
+    margin-bottom: 10px;
+  }
+
+  /* -------------------------------------- MODAL FOR HEALTH ASSESSMENT ------------------------------------- */
+
+/* ---------------------- MODAL FOR HEALTH ASSESSMENT -------------------------- */
+.health-modal {
+  background-color: #1a1a1a;
+  border: 2px solid #666363;
+  border-radius: 12px;
+  padding: 20px;
+  width: auto;
+  max-width: 95%;
+  margin: auto;
+}
+
+/* Header Text */
+.health-modal h5,
+.health-modal h6 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Assessment Items */
+.assessment-item {
+  background-color: #2a2a2a;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Responsive Font Sizes */
+.health-modal h5 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+.health-modal h6 { font-size: clamp(1rem, 1.8vw, 1.3rem); }
+.assessment-item { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
+
+  /* -------------------------------------- EDIT NUTRITION/DIET PLAN ------------------------------------- */
+
+.nutrition-modal {
+  background-color: #1a1a1a;
+  border: 2px solid #666363;
+  border-radius: 12px;
+  padding: 20px;
+  width: fixed;
+  max-width: 95%;
+  margin: auto;
+}
+
+/* Dropdown */
+.nutrition-dropdown {
+  background-color: #4D4D4D;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  border: none;
+}
+.nutrition-dropdown-menu {
+  background-color: #2a2a2a;
+}
+.nutrition-dropdown-menu .dropdown-item {
+  color: white;
+}
+.nutrition-dropdown-menu .dropdown-item:hover {
+  background-color: #3f3f3f;
+}
+
+/* Input fields */
+.nutrition-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+}
+.nutrition-input::placeholder {
+  color: #4D4D4D;
+}
+
+#calories,
+#ingredients {
+  margin-bottom: 7px;
+}
+/* Buttons */
+.btn-add {
+  background-color: transparent;
+  border: 1px solid #9E0A0A;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+}
+.btn-add:hover {
+  color: #ff2323;
+  border: 2px solid #ff2323;
+}
+
+
+.btn-delete {
+  background-color: #3F3F3F;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Tabs */
+.nutrition-tabs .nav-link {
+  background-color: transparent;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+.nutrition-tabs .nav-link.active {
+  background-color: #3F3F3F;
+  color: white;
+}
+
+/* Items inside ito yung sa example na item */
+.nutrition-item {
+  background-color: #3F3F3F;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.nutrition-dropdown::after {
+  display: none !important;
+}
+.nutrition-dropdown i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Tabs horizontal alignment */
+.nutrition-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+.nutrition-tabs .nav-link {
+  flex: 1;
+  text-align: center;
+  font-size: clamp(12px, 2vw, 16px); /* responsive font size */
+}
+
+/*  Border sa food list container */
+.nutrition-content {
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #2a2a2a;
+  height: 400px;
+}
+
+/* Items inside with expand details */
+.nutrition-item {
+  background-color: #3F3F3F;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  color: white;
+  cursor: pointer;
+}
+.nutrition-item:hover {
+  background-color: #5a5a5a;
+}
+.nutrition-details {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 5px;
+  display: none; 
+}
+
+/* Input fix */
+.nutrition-input {
+  background-color: transparent !important;
+  border: 1px solid #636060;
+  color: white !important;
+}
+
+  /* -------------------------------------- EDIT WORKOUTS ------------------------------------- */
+
+.workout-modal {
+  background-color: #1a1a1a;
+  border: 2px solid #666363;
+  border-radius: 12px;
+  padding: 20px;
+  width: fixed;
+  max-width: 95%;
+  margin: auto;
+}
+
+.schedule {
+  margin-bottom: 5px;
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.workout-title {
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+.workout-input {
+  background-color:transparent !important;
+  border-radius: 20px;
+  border: #4D4D4D 1px solid !important;
+  color: white !important; 
+  padding: 10px 15px;
+}
+.workout-input::placeholder {
+  color: #4D4D4D;
+}
+
+/* Date input group */
+
+.workout-date .form-control {
+  border-radius: 20px;
+  background-color: transparent !important;
+  border:  #4D4D4D 1px solid !important;
+}
+
+/* CALENDAR ICON COLOR */
+
+
+#dob {
+  color:#4D4D4D;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(41%) sepia(0%) saturate(0%) hue-rotate(170deg) brightness(90%) contrast(90%);
+}
+input[type="date"]::-webkit-input-placeholder { color: #817F7F; }
+input[type="date"]::-moz-placeholder { color: #817F7F; }
+input[type="date"]::placeholder { color: #817F7F; }
+input[type="date"]:-ms-input-placeholder { color: #817F7F; }
+
+/* Right side list */
+.workout-list .workout-item {
+  background-color: #3F3F3F;
+  border-radius: 20px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  color: white;
+  cursor: pointer;
+}
+.workout-list .workout-details {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: #ccc;
+}
+
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  
+  /* Adjust main content on mobile */
+  #mainContent {
+    margin-left: 0 !important;
+  }
+  
+  /* Show hamburger menu on mobile */
+  #menuToggle {
+    display: block !important;
+  }
+  
+   /* Header margin on mobile */
+  h1 {
+    margin-top: 5px;
+  }
+}
+
+/* Desktop - hide hamburger menu */
+@media (min-width: 769px) {
+  #menuToggle {
+    display: none !important;
+  }
+  
+  .sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Table responsive */
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+#memberTable {
+  width: 100%;
+  min-width: 600px;
+}
+  
+/* Wrapper para di mag-overlap */
+.content-wrapper {
+  margin-left: 270px;   
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+}
+
+/* kapag collapsed ang sidebar */
+.sidebar.collapsed ~ .content-wrapper {
+  margin-left: 100px;
+}
+
+/* mobile view */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+}
+
+
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}

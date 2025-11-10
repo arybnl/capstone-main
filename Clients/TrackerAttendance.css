@@ -1,0 +1,151 @@
+/* attendance tracker specific styles */
+
+.attendance-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 25px;
+}
+
+.attendance-card {
+  background: var(--muted);
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.attendance-card .card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.attendance-card .card-body {
+  flex-grow: 1;
+  color: var(--text-muted);
+}
+
+.attendance-status {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.clock-time {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.qr-code-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  min-height: 180px; /* Ensure space for QR code */
+}
+
+.qr-instruction {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.qr-code-placeholder img {
+  border: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 5px;
+  background-color: white;
+  margin-bottom: 15px;
+}
+
+.btn-group .btn-check + .btn {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-group .btn-check:checked + .btn {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-light);
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th, .attendance-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.attendance-table th {
+  color: var(--text-light);
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.attendance-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Status colors */
+.status-present { color: #5cb85c; } /* Green */
+.status-absent { color: #d9534f; } /* Red */
+.status-partial { color: #f0ad4e; } /* Orange */
+
+/* Small screen adjustments */
+@media (max-width: 767.98px) {
+  .attendance-card {
+    padding: 15px;
+  }
+  .attendance-card .card-header {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+  .qr-code-placeholder img {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  .btn-group label.btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Ensure sub-link styling in sidebar */
+.sidebar .nav-link.sub-link {
+    padding-left: 45px; /* Indent sub-link */
+    font-size: 0.9em;
+}
+.sidebar .nav-link.sub-link .icon {
+    font-size: 1.1em; /* Adjust icon size if needed */
+}
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}

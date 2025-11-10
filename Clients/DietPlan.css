@@ -1,0 +1,235 @@
+ body {
+      background-color: #1a1a1a;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden; 
+    }
+
+    .section {
+      height: 50%; 
+      padding: 32px;
+      box-sizing: border-box;
+    }
+
+    .header-text {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .highlight-red {
+      color: #9E0A0A;
+      font-size: 35px;
+    }
+
+    .highlight-white {
+      color: #FFFFFF;
+      font-size: 35px;
+    }
+
+/* Card container */
+.diet-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diet-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.diet-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Overlay hover */
+.diet-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(148,148,148,0.8);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.diet-card:hover .overlay {
+  opacity: 1;
+}
+
+/* Title sa each image card */
+.diet-card .card-title {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #9E0A0A;
+}
+
+.card-text {
+    margin-top: 5px;
+    font-size: large;
+    color: white;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .section {
+    height: auto; 
+    padding: 16px; 
+    margin-bottom: 20px; 
+  }
+
+  .diet-card img {
+    height: 180px;
+  }
+
+  .diet-card .card-title {
+    font-size: 1.2rem;
+  }
+
+  .diet-card .card-text {
+    font-size:1rem;
+  }
+
+  .content-box {
+    height: auto; 
+  }
+}
+
+
+/* Diet Modal */
+.diet-modal {
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  height: 70vh;
+}
+
+.reco-tabs {
+  color: white;
+}
+
+.reco-tabs:hover {
+  color:white;
+}
+
+.reco-nav-tabs {
+  border-bottom: none !important;
+}
+
+.diet-header {
+  padding: 10px;
+}
+
+.reco-btn {
+  filter: invert(1);
+}
+
+/* Coach Modal */
+.coach-modal {
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  max-width: 1200px;
+  width: 90%;
+  height: auto;
+  margin: auto;
+  padding: 20px; 
+}
+
+.coach-header {
+    font-size: 20px;
+}
+
+/* Left section styling */
+.coach-left hr {
+  border-color: #727272;
+  margin: 1rem 0;
+}
+.coach-box {
+  background: #313131;
+  border-radius: 15px;
+  padding: 10px;
+  height: 50vh;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #9E0A0A;
+  color: white;
+}
+
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+:root {
+    --accent: #9E0A0A; /* A muted gray color */
+    --text-light: #f8f9fa; 
+  }
+
+/* CLOSE BUTTON */
+.modal-header {
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+
+.btn-close-white {
+  filter: invert(1);
+  margin: 0;
+  padding: 0;
+  transform: translateY(2px); 
+}
+
+.modal-body {
+  padding-top: 0.5rem; 
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .coach-modal {
+    width: 95%;
+    padding: 15px;
+  }
+  .coach-left {
+    text-align: center;
+  }
+}
+
+/* Wrapper para di mag-overlap */
+.content-wrapper {
+  margin-left: 250px;   
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+}
+
+/* kapag collapsed ang sidebar */
+.sidebar.collapsed ~ .content-wrapper {
+  margin-left: 90px;
+}
+
+/* mobile view */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+}
+

@@ -1,0 +1,479 @@
+/* General Body and Main Container */
+:root{
+  --bg: #181818;
+  --muted: rgba(140,138,138,0.13);
+  --accent: #9E0A0A;
+  --text-light: #FFF8F8;
+  --text-muted: rgba(255,255,255,0.75);
+}
+
+body {
+    background-color: var(--bg);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-y: auto;
+    color: var(--text-light);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.content-wrapper {
+  margin-left: 270px;
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+  min-height: calc(100vh - 40px);
+}
+
+.dashboard-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-top: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    min-height: 100vh;
+}
+
+/* Header */
+h1 {
+  color: var(--text-light);
+  font-weight: bold;
+  font-size: clamp(1.25rem, 2.6vw, 2.2rem);
+  margin-bottom: 6px;
+}
+
+.welcome-subtext {
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+}
+
+/* Stat Cards */
+.stat-card {
+  background-color: var(--muted);
+  border: none;
+  border-radius: 16px; /* Increased border-radius for consistency */
+  color: var(--text-light);
+  height: 160px; /* Adjusted height for consistency */
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  align-items: flex-start; /* Align text to start */
+  justify-content: center;
+  padding: clamp(16px, 2.2vw, 32px);
+  cursor: default; /* Not clickable like client progress */
+}
+
+.stat-card .card-title {
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  color: var(--text-light);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.stat-card .card-text {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: bold;
+  line-height: 1;
+  color: var(--text-light);
+}
+
+/* Notifications Card (renamed to Assignments/Activities for trainers) */
+.activities-container {
+  background-color: var(--muted);
+  border: none;
+  border-radius: 16px;
+  color: var(--text-light);
+  padding: clamp(16px, 2.2vw, 32px);
+  min-height: 250px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.activities-header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.accent-bar {
+  width: 10px;
+  height: 40px;
+  background: var(--accent);
+  margin-right: 8px;
+  border-radius: 4px;
+}
+
+.activities-header {
+  font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.activities-header .new-updates {
+  color: var(--accent);
+}
+
+.activity-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 5px;
+}
+
+.activity-item {
+  background: rgba(255,255,255,0.05); /* Slightly darker background for items */
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-item .timestamp {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-top: 5px;
+  text-align: right;
+}
+
+.activity-item .activity-text {
+    flex-grow: 1;
+}
+
+/* Calendar Container (Trainer specific) */
+.calendar-container {
+  background: var(--muted);
+  border-radius: 16px;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 240px;
+  margin-bottom: 16px; /* Added margin for separation */
+}
+
+.calendar-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-light);
+  min-width: 120px;
+}
+
+.calendar-dates {
+  width: 100%;
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-day {
+  font-size: .8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.calendar-date {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(.9rem, 1.5vw, .95rem);
+  color: var(--text-light);
+  border-radius: 8px;
+  position: relative;
+  min-width: 32px;
+  cursor: pointer;
+}
+
+.calendar-date:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-date.today {
+  background: var(--accent);
+  color: var(--text-light);
+  font-weight: 700;
+}
+
+.calendar-date.has-schedule::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 5px; /* Adjust position to be a small dot at the bottom-center */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px; /* Size of the dot */
+  height: 6px; /* Size of the dot */
+  background-color: var(--text-light); /* Color of the dot */
+  border-radius: 50%; /* Make it a circle */
+  /* Remove text-shadow if it's just a dot */
+}
+
+/* Add schedule bar (Trainer) */
+.add-schedule-bar {
+  background: var(--accent);
+  border-radius: 8px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  margin-top: 16px;
+}
+
+.add-schedule-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  font-size: clamp(.95rem, 1.8vw, 1.05rem);
+  padding: 12px 16px;
+  outline: none;
+}
+
+.add-schedule-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-weight: 700;
+  padding: 12px 16px;
+}
+
+/* Schedules list */
+.schedules-header-row {
+  margin-top: 24px; /* Increased top margin for separation */
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.schedules-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.schedules-title {
+  font-size: clamp(1.05rem, 2.1vw, 1.5rem);
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.view-all-link {
+  color: var(--text-light);
+  font-size: .9rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.schedule-bar {
+  background: var(--muted);
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--text-light);
+  font-size: clamp(.9rem, 1.6vw, 1rem);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule-actions .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+/* Messages Card (Trainer) - Reusing client's schedule bar style */
+.messages-card {
+  background-color: var(--muted);
+  border: none;
+  border-radius: 16px;
+  color: var(--text-light);
+  padding: clamp(16px, 2.2vw, 32px);
+  height: auto;
+  margin-top: 16px; /* Space between schedules and messages */
+}
+
+.messages-card .card-title {
+  font-size: clamp(1.05rem, 2.1vw, 1.5rem);
+  font-weight: bold;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.messages-card .view-all {
+  color: var(--text-light);
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.message-item {
+  margin-bottom: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08); /* Separator */
+  display: flex;
+  flex-direction: column;
+}
+
+.message-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.message-sender {
+  font-weight: bold;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.message-preview {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.message-time {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 5px;
+}
+
+
+/* Scrollbar customization (re-using client's style) */
+.activity-list::-webkit-scrollbar,
+.message-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.activity-list::-webkit-scrollbar-track,
+.message-list::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 10px;
+}
+
+.activity-list::-webkit-scrollbar-thumb,
+.message-list::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 10px;
+  border: 2px solid #2a2a2a;
+}
+
+/* Picker Panels (for month/year selection) */
+.picker-panel{
+  background: #1A1A1A;
+  border-radius:12px;
+  padding:8px;
+  margin-top:8px;
+  max-height:220px;
+  overflow:auto;
+  width:100%;
+  z-index:50;
+  position: absolute;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.picker-list{ display:flex; flex-wrap:wrap; gap:8px; }
+.picker-item{
+  background:transparent;
+  color:var(--text-light);
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  min-width:80px;
+  text-align:center;
+}
+.picker-item:hover{ background: rgba(255,255,255,0.04); }
+
+/* Modal override for dark theme */
+.modal-content.bg-dark {
+    background: #141414;
+    color: var(--text-light);
+}
+.btn-close-white {
+    filter: invert(1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-card {
+    height: auto;
+    padding: 15px 10px;
+  }
+  .stat-card .card-text {
+    font-size: 1.8rem;
+  }
+  .activities-container {
+    padding: 15px 10px;
+  }
+  .activity-item {
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 28px;
+  }
+  .welcome-subtext {
+    font-size: 1.5rem;
+  }
+  .stat-card .card-text {
+    font-size: 1.5rem;
+  }
+  .activities-container,
+  .calendar-container,
+  .messages-card {
+    padding: 10px;
+  }
+  .calendar-grid {
+    gap: 3px;
+  }
+  .calendar-day, .calendar-date {
+    padding: 3px 0;
+    font-size: 0.85rem;
+  }
+  .add-schedule-input {
+    font-size: 0.9rem;
+  }
+  .schedule-bar {
+    font-size: 0.85rem;
+  }
+}
+
+/* Sidebar Specific Styles - ensuring consistency */
+.sidebar .nav-link.active {
+    background-color: var(--accent); /* Highlight active nav link */
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}

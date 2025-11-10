@@ -1,0 +1,216 @@
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+:root {
+    --accent: #9E0A0A; /* A muted gray color */
+    --text-light: #f8f9fa; 
+  }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #212121;
+            overflow: hidden;
+        }
+        .main-container {
+            background: #313131;
+            margin: 32px;
+            height: calc(100vh - 64px);
+            border-radius: 16px;
+            overflow-y: auto;
+            box-shadow: #000 0px 0px 20px 0px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 16px;
+                height: calc(90vh - 32px);
+            }
+        }
+        .header-bar {
+            background: #9E0A0A;
+            color: #fff;
+            padding: 18px 24px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-title {
+            font-weight: 500;
+            font-size: 30px;
+        }
+
+        /* Use this structure: */
+        .content-wrapper {
+         margin-left: 0;
+         transition: margin-left 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .content-wrapper {
+             margin-left: 280px;
+          }
+        }
+
+        /* Sort button  */
+        .sort-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .sort-dropdown {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            min-width: 120px;
+            z-index: 10;
+        }
+        .sort-dropdown-option {
+            padding: 10px 18px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #000;
+            cursor: pointer;
+        }
+        .sort-dropdown-option:hover {
+            background: #f2f2f2;
+        }
+
+        /* Archive List */
+        .archive-list {
+            flex: 1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .archive-list {
+                padding: 12px;
+                gap: 10px;
+            }
+        }
+        .archive-item {
+            background: none;
+            border-radius: 8px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .archive-item:hover {
+            background: #727171;
+            color: #000; /* diko malagyan ng hover yung font color */   
+            box-shadow: #000 0px 0px 10px 0px;
+        }
+        .archive-info {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #ffffff;
+        }
+        .archive-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        /* Archive button */
+        .restore-btn {
+            background: none;
+            border: none;
+            color: #9E0A0A;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .restore-btn:hover {
+            color: #d32f2f;
+        }
+
+        /* Modal custom styles */
+        .modal-content {
+            border-radius: 12px;
+            background-color: #313131;
+            color: #fff;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            justify-content: center;
+            background-color: #9E0A0A;
+            color: #fff;
+        }
+
+        .modal-title {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .modal-subheading {
+            text-align: center;
+            margin-bottom: 18px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .modal-footer {
+            justify-content: center;
+            gap: 18px;
+            border-top: none;
+        }
+        .btn-yes {
+            background: #07eb22;
+            color: #fff;
+            font-weight: 500;
+            border: none;
+        }
+        .btn-yes:hover {
+            background: #007e34;
+            color: #fff;
+        }
+        .btn-no {
+            background: #f5220a;
+            color: #fff;
+            font-weight: 500;
+            border: none;
+        }
+        .btn-no:hover {
+            background: #c71400;
+            color: #fff;
+        }
+
+        /* Hide default modal scroll */
+        .modal {
+            overflow-y: auto;
+        }
+
+        /* === CONTENT WRAPPER DEFAULT === */
+        @media (min-width: 768px) {
+            .content-wrapper {
+            margin-left: 250px; /* sidebar width kapag expanded */
+            transition: margin-left 0.3s ease;
+        }
+
+        /* kapag sidebar may .collapsed class */
+            .sidebar.collapsed ~ .content-wrapper {
+             margin-left: 90px; /* sidebar width kapag collapsed */
+            }
+        }   

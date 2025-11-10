@@ -1,0 +1,81 @@
+ body {
+      background-color: #1a1a1a;
+      margin: 0;
+      height: 100vh;
+      overflow: auto; 
+    }
+
+    .section {
+      height: 500px; 
+      padding: 32px;
+      box-sizing: border-box;
+    }
+
+    .header-text {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .highlight-red {
+      color: #9E0A0A;
+      font-size: 35px;
+    }
+
+    .highlight-white {
+      color: #FFFFFF;
+      font-size: 35px;
+    }
+
+    .content-box {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      height: calc(100% - 48px); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-item img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+            .highlight-red, .highlight-white {
+                font-size: 24px;
+            }
+        }
+
+    /* Wrapper para di mag-overlap */
+.content-wrapper {
+  margin-left: 250px;   
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+}
+
+/* kapag collapsed ang sidebar */
+.sidebar.collapsed ~ .content-wrapper {
+  margin-left: 90px;
+}
+
+/* mobile view */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+}
+
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+:root {
+    --accent: #9E0A0A; /* A muted gray color */
+    --text-light: #f8f9fa; 
+  }

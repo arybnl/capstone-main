@@ -1,0 +1,511 @@
+/* CLIENTS SIDEBAR */
+
+.body {
+    background-color: #1A1A1A;
+    margin: 0;
+    padding: 0;
+}
+
+/*  ----------------------    GENERAL DESIGN SA MGA SIDEBAR  -----------------  */
+
+.sidebar {
+    position: fixed; /* Keep it fixed on desktop */
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 250px;
+    height: calc(100% - 40px); /* Adjust height to fill viewport minus margins */
+    background-color: #1A1A1A;
+    border: 2px solid #F43F3F;
+    border-radius: 15px;
+    z-index: 1000; /* Ensure it's above other content */
+    left: 0; /* Default position for desktop */
+    transition: width 0.3s ease, left 0.3s ease; /* Add left to transition */
+}
+
+.sidebar a {
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.sidebar .nav-link:hover {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-left: 5px;
+}
+
+/* collapsed state ng sidebar */
+.sidebar.collapsed {
+  width: 90px; /*pang icon sizing kapag nag collapse*/
+}
+
+/* itago yung text kapag collapsed */
+.sidebar.collapsed .text,
+.sidebar.collapsed .description {
+  display: none;
+}
+
+/* center align icons kapag collapsed */
+.sidebar.collapsed .nav-link {
+  justify-content: center;
+}
+
+/*LOGO*/
+
+#logo {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+/* smooth resize para sa logo */
+#logo img {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* kapag sidebar naka-collapse */
+.sidebar.collapsed #logo img {
+  width: 50px;   /* same size ng icons mo */
+  height: 50px;
+  justify-content: left;
+}
+
+/*DASHBOARD*/
+
+#dashboard:hover {
+    color: #F43F3F;
+}
+
+#dashboard .icon {
+    font-size: 25px;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+#dashboard .icon:hover {
+    color: #F43F3F
+}
+
+#dashboard .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+/*USERS*/
+
+#users .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#users .icon:hover {
+    color: #F43F3F;
+}
+
+#users .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+
+#users .description:hover {
+    color: #F43F3F;
+}
+
+/* USERS - Submenu */
+#submenu {
+    background-color: #1A1A1A;
+}
+
+#submenu .text:hover {
+    color: #F43F3F;
+}
+
+#submenu .text {
+    display: block;
+    font-size: 16px;
+    color: #fafafa;
+}
+
+/*LOG & TRACK*/
+
+#logtrack:hover {
+    color: #F43F3F;
+}
+#logtrack .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#logtrack .icon:hover {
+    color: #F43F3F;
+}
+
+#logtrack .text {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+/*PROFILE*/
+
+/* Ensure profile and logout are at the bottom for desktop */
+@media (min-width: 1025px) {
+    #profile {
+        position: absolute;
+        bottom: 60px; /* Adjust as needed */
+        width: 100%;
+        cursor: pointer;
+    }
+
+    #logout {
+        position: absolute;
+        bottom: 10px; /* Adjust as needed */
+        width: 100%;
+    }
+}
+
+#profile:hover {
+    color: #F43F3F;
+}
+
+#profile .icon i {
+    font-size: 30px;
+    margin-bottom: 5px;
+    color: #fafafa;
+}
+
+#profile .icon i:hover {
+    color: #F43F3F
+}
+
+#profile .text::after {
+    content: "Client";
+    margin-left: 5px;
+    font-size: 14px;
+    color: #ad9393;
+}
+
+/*LOGOUT*/
+
+#logout .icon {
+    font-size: 30px;
+    color: #fafafa;
+    margin-right: 10px;
+}
+
+#logout .icon:hover {
+    color: #F43F3F;
+}
+
+#logout .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+}
+
+#logout:hover {
+    color: #F43F3F;
+}
+
+/*  ---------------------- TRAINER SIDE BAR -----------------  */
+
+#profile .texts::after {
+    content: "trainer";
+    margin-left: 5px;
+    font-size: 14px;
+    color: #ad9393;
+    margin-top: 2px;
+}
+
+/*CLIENTS*/
+
+#clients:hover {
+    color: #F43F3F;
+}
+
+#clients .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#clients .icon:hover {
+    color: #F43F3F;
+}
+
+#clients .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*MESSAGES*/
+
+#messages:hover {
+    color: #F43F3F;
+}
+
+#messages .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#messages .icon:hover {
+    color: #F43F3F;
+}
+
+#messages .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*  ---------------------- CLIENT SIDE BAR -----------------  */
+
+#profile .profile-text::after {
+    content: "client";
+    margin-left: 5px;
+    font-size: 14px;
+    color: #ad9393;
+}
+
+/*HEALTH HISTORY*/
+#health:hover .text {
+    color: #F43F3F;
+}
+
+#health:hover {
+    color: #F43F3F;
+}
+
+#health .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#health .icon:hover {
+    color: #F43F3F;
+}
+
+#health .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*RECOMMENDED VIDEOS*/
+
+#reco:hover {
+    color: #F43F3F;
+}
+
+#reco .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#reco .icon:hover {
+    color: #F43F3F;
+}
+
+#reco .description {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*DIET PLAN*/
+
+#planner:hover .text {
+    color: #F43F3F;
+}
+
+#planner:hover {
+    color: #F43F3F;
+}
+
+#planner .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#planner .icon:hover {
+    color: #F43F3F;
+}
+
+#planner .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*MESSAGES*/
+
+#client-messages:hover .text {
+    color: #F43F3F;
+}
+
+#client-messages:hover {
+    color: #F43F3F;
+}
+
+#client-messages .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#client-messages .icon:hover {
+    color: #F43F3F;
+}
+
+#client-messages .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*SETTINGS*/
+
+#settings:hover .text {
+    color: #F43F3F;
+}
+
+#settings:hover {
+    color: #F43F3F;
+}
+
+#settings .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#settings .icon:hover {
+    color: #F43F3F;
+}
+
+#settings .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/*ARCHIVE*/
+
+#archive:hover .text {
+    color: #F43F3F;
+}
+
+#archive:hover {
+    color: #F43F3F;
+}
+
+#archive .icon {
+    font-size: 25px;
+    color: #fafafa;
+}
+
+#archive .icon:hover {
+    color: #F43F3F;
+}
+
+#archive .text {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 7px;
+    color: #fafafa;
+}
+
+/* ---------------- Responsive Sidebar for Tablet & Mobile ---------------- */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    /* For mobile, make it an off-canvas menu */
+    position: fixed; /* Still fixed */
+    top: 0; /* Align to top of viewport */
+    left: -250px; /* Start off-screen to the left (width of sidebar) */
+    margin: 0; /* Remove fixed margins from desktop */
+    height: 100vh; /* Full viewport height */
+    width: 250px; /* Define its width when shown */
+    border-radius: 0; /* Remove border-radius for full-height */
+    border: none; /* Remove border for cleaner look */
+    background-color: #1A1A1A; /* Or whatever background you prefer */
+    z-index: 1050; /* Higher z-index to overlay everything, including Bootstrap modals */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5); /* Add a subtle shadow */
+    transition: left 0.3s ease-in-out; /* Smooth slide-in/out */
+  }
+
+  /* When active, slide it into view */
+  .sidebar.active {
+    left: 0;
+  }
+
+  /* Hide the collapse functionality on mobile as it's an overlay */
+  .sidebar.collapsed {
+    width: 250px; /* Override collapsed width for mobile */
+  }
+  .sidebar.collapsed .text,
+  .sidebar.collapsed .description {
+      display: block; /* Override hidden text for mobile */
+  }
+  .sidebar.collapsed .nav-link {
+      justify-content: flex-start; /* Override centered icons for mobile */
+  }
+  .sidebar.collapsed #logo img {
+      width: 90px; /* Override logo size for mobile */
+      height: 90px;
+  }
+
+
+  .sidebar .nav-link {
+    justify-content: flex-start;
+    padding: 15px 20px; /* Increase padding for touch targets */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Subtle separator */
+  }
+
+  /* Adjust profile and logout for mobile positioning */
+  #profile,
+  #logout {
+    position: relative; /* Remove absolute positioning */
+    margin-top: 0; /* Remove fixed margin-top */
+    width: auto; /* Let it take natural width */
+    padding: 15px 20px; /* Consistent padding */
+    bottom: auto; /* Remove bottom positioning */
+  }
+
+  /* Show the toggle button on small screens */
+  #menuToggle {
+    display: block !important; /* Ensure it's visible */
+    position: fixed; /* Keep it fixed on screen */
+    top: 10px;
+    left: 10px;
+    z-index: 1060; /* Above the sidebar */
+  }
+}
+
+/* Make sure the desktop toggle button is hidden on small screens */
+@media (max-width: 1024px) {
+  #logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; /* Center the logo if needed */
+  }
+}

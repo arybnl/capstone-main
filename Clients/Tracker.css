@@ -1,0 +1,365 @@
+/* Tracker.css */
+
+/* Root variables for theming - assume these are defined elsewhere like dashboard.css */
+:root {
+    --primary: #dc3545; /* A red/danger color */
+    --accent: #9E0A0A; /* A muted gray color */
+    --muted: #343a40; /* A dark gray for backgrounds */
+    --secondary-bg: #495057; /* Slightly lighter than muted for inputs */
+    --text-light: #f8f9fa; /* Light text color */
+    --text-muted: #adb5bd; /* Muted text color */
+    --success-check: #28a745; /* Green for attendance checks */
+    --partial-check: #ffc107; /* Yellow for partial attendance */
+    --completed-workout-bg: rgba(40, 167, 69, 0.15); /* Light green tint for completed days */
+    --scheduled-workout-bg: rgba(220, 53, 69, 0.15); /* Light red tint for scheduled days */
+    --today-border: 2px solid var(--primary); /* Border for today in calendar */
+}
+
+
+.tracker-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-top: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    min-height: 100vh;
+}
+
+.tracker-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.tracker-section {
+    background: var(--muted);
+    border-radius: 16px;
+    padding: clamp(20px, 3vw, 40px);
+    margin-bottom: 24px;
+}
+
+.section-header {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+.tracker-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tracker-table th, .tracker-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    vertical-align: middle; /* Align content vertically in the middle */
+}
+
+.tracker-table th {
+    background-color: var(--accent);
+    color: var(--text-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.tracker-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Completed workout row style */
+.tracker-table .table-completed-workout {
+    text-decoration: line-through;
+    color: var(--text-muted) !important; /* Lighter color for completed items */
+    opacity: 0.7;
+}
+
+.tracker-table .table-completed-workout td {
+    color: inherit; /* Ensure text color inherits from the row */
+}
+
+
+.tracker-table .btn {
+    padding: 0.3em 0.6em;
+    font-size: 0.85em;
+    margin-right: 5px;
+}
+
+/* Custom styles for the three-dots dropdown */
+.dropdown-toggle-no-caret::after {
+    display: none; /* Hide the default Bootstrap caret */
+}
+
+.dropdown-menu.dropdown-menu-dark {
+    background-color: var(--muted); /* Darker background for dropdown */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dropdown-menu.dropdown-menu-dark .dropdown-item {
+    color: var(--text-light);
+}
+
+.dropdown-menu.dropdown-menu-dark .dropdown-item:hover,
+.dropdown-menu.dropdown-menu-dark .dropdown-item:focus {
+    background-color: var(--accent); /* Highlight on hover/focus */
+    color: var(--text-light);
+}
+
+/* Checkbox styling */
+.workout-complete-checkbox {
+    cursor: pointer;
+    width: 1.2em;
+    height: 1.2em;
+    accent-color: var(--primary); /* Highlight color when checked */
+    transition: transform 0.2s ease-out; /* Add animation */
+}
+
+/* Animation for checkbox */
+.workout-complete-checkbox:checked {
+    transform: scale(1.1);
+}
+
+/* Modal specific styles */
+.modal-content.bg-dark {
+    background-color: var(--muted) !important;
+}
+.modal-content .form-control,
+.modal-content .form-select {
+    background-color: var(--secondary-bg) !important;
+    color: var(--text-light) !important;
+    border: 1px solid var(--accent) !important;
+}
+.modal-content .form-control::placeholder {
+    color: var(--text-muted);
+}
+.modal-content .form-select option {
+    background-color: var(--secondary-bg);
+    color: var(--text-light);
+}
+
+/* --- Calendar Styles --- */
+.workout-calendar {
+    background-color: var(--secondary-bg);
+    border-radius: 12px;
+    padding: 20px;
+    color: var(--text-light);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h4 {
+    margin: 0;
+    color: var(--text-light);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px; /* Increased gap for better spacing */
+}
+
+.calendar-day-box {
+    padding: 10px 5px; /* Adjust padding for better look */
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.1);
+    font-size: 0.9em;
+    position: relative;
+    min-height: 60px; /* Ensure a minimum height for better visual */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-day-box:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day-box.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+.calendar-day-box.current-month {
+    color: var(--text-light);
+}
+
+.calendar-day-box.other-month {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.calendar-day-box.today {
+    border: var(--today-border);
+    background-color: rgba(220, 53, 69, 0.3); /* Slightly darker red for today */
+}
+
+.calendar-day-number {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.calendar-event-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--primary); /* Red for scheduled */
+    margin-top: 3px;
+    display: inline-block;
+}
+
+.calendar-event-indicator.completed {
+    background-color: var(--success-check); /* Green for completed */
+}
+
+/* --- Workout for the Day Section --- */
+.workout-for-day-card {
+    background: var(--secondary-bg);
+    border-radius: 12px;
+    padding: 20px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.workout-for-day-card .section-header {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.workout-item-card {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.workout-item-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.workout-item-card.completed-day {
+    opacity: 0.7;
+    background-color: var(--completed-workout-bg);
+}
+
+.workout-item-card .workout-details {
+    flex-grow: 1;
+}
+
+.workout-item-card .workout-title {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--text-light);
+}
+
+.workout-item-card .workout-meta {
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.workout-item-card .workout-meta span:not(:last-child)::after {
+    content: ' | ';
+}
+
+.workout-item-card .form-check-input {
+    min-width: 1.5em;
+    min-height: 1.5em;
+    accent-color: var(--success-check);
+}
+
+/* No workouts message */
+.no-workouts-message {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tracker-title {
+        text-align: left;
+    }
+    .tracker-section {
+        padding: 15px;
+    }
+    .tracker-table th, .tracker-table td {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+    .section-header {
+        font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    }
+    .tracker-table th:nth-child(2), /* Date */
+    .tracker-table td:nth-child(2),
+    .tracker-table th:nth-child(3), /* Time */
+    .tracker-table td:nth-child(3) {
+        display: table-cell; /* Ensure these are always visible */
+    }
+    .tracker-table th:nth-child(4), /* Workout */
+    .tracker-table td:nth-child(4) {
+        white-space: nowrap; /* Prevent workout names from wrapping too much */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px; /* Adjust as needed */
+    }
+    .tracker-table th:nth-child(5), /* Type */
+    .tracker-table td:nth-child(5) {
+        display: none; /* Hide workout type on small screens */
+    }
+
+    .d-flex.flex-wrap {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .d-flex.flex-wrap > div:last-child {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .d-flex.flex-wrap > div:last-child button {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+}
+
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}

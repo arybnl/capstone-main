@@ -1,0 +1,698 @@
+/* General Styling */
+:root {
+    --primary-red: #E70000;
+    --dark-bg: #1A1A1A;
+    --light-text: #F0F0F0;
+    --gray-text: #B0B0B0;
+    --card-bg: #2B2B2B;
+    --input-bg: #3A3A3A;
+    --border-color: #444444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--light-text);
+    background-color: var(--dark-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--primary-red);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: var(--light-text);
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #CC0000; /* Darker red on hover */
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 40px; /* Adjust logo size */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+}
+
+.navbar nav ul li a {
+    color: var(--light-text);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-red);
+    text-decoration: none;
+}
+
+.navbar .login-btn {
+    background-color: var(--primary-red);
+    color: var(--light-text);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.navbar .login-btn:hover {
+    background-color: #CC0000;
+}
+
+/* Hero Section */
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover; /* You'll need a background image */
+    padding: 100px 0;
+    position: relative;
+    text-align: left;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Overlay for readability */
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Bring content above overlay */
+    z-index: 1;
+}
+
+.hero .hero-content {
+    flex: 1;
+    max-width: 55%;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--light-text);
+}
+
+.hero h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: var(--primary-red);
+}
+
+.hero p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: var(--gray-text);
+}
+
+.hero .hero-image {
+    flex: 1;
+    text-align: right;
+    max-width: 40%; /* Adjust as needed */
+}
+
+.hero .hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+}
+
+/* About Section */
+.about-section {
+    background-color: var(--dark-bg);
+    padding: 80px 0;
+}
+
+.about-section .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-section .about-image {
+    flex: 1;
+    position: relative;
+    padding-bottom: 35%; /* Aspect ratio for the image */
+    min-height: 300px; /* Ensure image container has a minimum height */
+}
+
+.about-section .about-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-section .about-content {
+    flex: 1;
+}
+
+.about-section h3 {
+    color: var(--primary-red);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--light-text);
+}
+
+.about-section p {
+    color: var(--gray-text);
+    margin-bottom: 25px;
+}
+
+.about-section .stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 25px;
+}
+
+.about-section .stat-item span {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--primary-red);
+    display: block;
+}
+
+.about-section .stat-item p {
+    color: var(--light-text);
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+.about-section .gym-location h4 {
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.about-section .gym-location p {
+    color: var(--gray-text);
+    font-size: 0.9em;
+}
+
+/* Services Section */
+.services-section {
+    background-color: #222222;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: var(--light-text);
+}
+
+.services-section .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.services-section .service-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-section .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.services-section .service-card .icon {
+font-size: 3em; /* Adjust icon size */
+color: var(--primary-red);
+margin-bottom: 20px;
+}
+
+.services-section .service-card img {
+    height: 60px; /* Adjust icon size */
+    margin-bottom: 20px;
+}
+
+.services-section .service-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--primary-red);
+}
+
+.services-section .service-card p {
+    color: var(--gray-text);
+    font-size: 0.95em;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--dark-bg);
+    padding: 80px 0;
+}
+
+.contact-section .container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.contact-section .contact-info {
+    flex: 1;
+    max-width: 40%;
+}
+
+.contact-section .contact-info h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--light-text);
+}
+
+.contact-section .contact-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: var(--primary-red);
+}
+
+.contact-section .contact-info p {
+    color: var(--gray-text);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-section .contact-info p img {
+    height: 20px; /* Icon size */
+    filter: invert(100%) grayscale(100%) brightness(150%) sepia(100%) hue-rotate(340deg) saturate(1500%); /* Makes icons red */
+}
+
+.contact-section .contact-form-container {
+    flex: 1;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section .contact-form h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--light-text);
+    text-align: center;
+}
+
+.contact-section .contact-form input,
+.contact-section .contact-form select,
+.contact-section .contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--light-text);
+    font-size: 1em;
+}
+
+.contact-section .contact-form select {
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23F0F0F0%22%20d%3D%22M287%2C197.394L146.2%2C56.596L5.4%2C197.394c-11.9%2C11.9-11.9%2C31.1%2C0%2C43s31.1%2C11.9%2C43%2C0L146.2%2C142.696l97.8%2C97.8c11.9%2C11.9%2C31.1%2C11.9%2C43%2C0S298.9%2C209.294%2C287%2C197.394z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+    padding-right: 40px;
+}
+
+
+.contact-section .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-section .contact-form input::placeholder,
+.contact-section .contact-form textarea::placeholder {
+    color: var(--gray-text);
+}
+
+.contact-section .contact-form select option {
+    background-color: var(--input-bg);
+    color: var(--light-text);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-red);
+    color: var(--light-text);
+    padding: 40px 0;
+    font-size: 0.9em;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+footer .footer-left img {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+footer .footer-left p {
+    max-width: 300px;
+}
+
+footer .footer-right {
+    display: flex;
+    gap: 50px;
+}
+
+footer .footer-right ul {
+    list-style: none;
+}
+
+footer .footer-right ul li {
+    margin-bottom: 10px;
+}
+
+footer .footer-right ul li a {
+    color: var(--light-text);
+    white-space: nowrap;
+}
+
+footer .footer-right ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .footer-contact p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .footer-contact p .icon {
+font-size: 1.2em; /* Icon size */
+color: var(--light-text);
+}
+
+
+
+/* Modal (Popup) Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: auto;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: var(--light-text);
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content input[type="text"] {
+    width: calc(100% - 30px); /* Adjust for padding */
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--light-text);
+    font-size: 1em;
+    display: block; /* Ensures full width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-content input::placeholder {
+    color: var(--gray-text);
+}
+
+.modal-content .btn {
+    width: calc(100% - 30px);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 12px 0;
+    font-size: 1.1em;
+}
+
+.modal-content p {
+    color: var(--gray-text);
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+.modal-content p a {
+    color: var(--primary-red);
+    font-weight: bold;
+}
+
+.close-btn {
+    color: var(--gray-text);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+/* Popup specific styles - show only one at a time */
+.login-popup,
+.create-account-popup,
+.forgot-password-popup,
+.verify-code-popup,
+.set-new-password-popup {
+    display: none;
+}
+
+.login-popup.active,
+.create-account-popup.active,
+.forgot-password-popup.active,
+.verify-code-popup.active,
+.set-new-password-popup.active {
+    display: block;
+}
+
+/* Forgot Password Text */
+.forgot-password-popup p:first-of-type,
+.verify-code-popup p:first-of-type {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .navbar nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .navbar nav ul li {
+        margin: 0 15px;
+        margin-bottom: 10px;
+    }
+
+    .hero .container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero .hero-content, .hero .hero-image {
+        max-width: 100%;
+    }
+    .hero h1 {
+        font-size: 2.8em;
+    }
+    .hero h2 {
+        font-size: 1.8em;
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    .hero .hero-image img {
+        margin: 0 auto 30px auto;
+    }
+
+    .about-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-section .about-image {
+        max-width: 80%;
+        margin: 0 auto;
+        padding-bottom: 50%; /* Adjust for smaller screens */
+    }
+    .about-section .stats {
+        justify-content: center;
+    }
+    .about-section .gym-location {
+        text-align: center;
+    }
+
+    .contact-section .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-section .contact-info,
+    .contact-section .contact-form-container {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+    .contact-section .contact-info p {
+        justify-content: center;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    footer .footer-right {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    footer .footer-right ul {
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2em;
+    }
+    .hero h2 {
+        font-size: 1.5em;
+    }
+    .services-section h2,
+    .contact-section h2 {
+        font-size: 2.5em;
+    }
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar nav ul li {
+        margin: 0 10px;
+    }
+    .hero h1 {
+        font-size: 1.8em;
+    }
+    .hero h2 {
+        font-size: 1.2em;
+    }
+    .about-section h2 {
+        font-size: 2em;
+    }
+    .modal-content {
+        padding: 25px 20px;
+    }
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+    .modal-content .btn {
+        font-size: 1em;
+    }
+}

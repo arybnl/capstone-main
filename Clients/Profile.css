@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-bg: #F4F7FC; /* Light background for the overall page */
+    --secondary-bg: #FFFFFF; /* White background for containers */
+    --accent-color: #9E0A0A; /* Red accent */
+    --text-dark: #333333;
+    --text-light: #6c757d;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-bg);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.settings-container {
+    background-color: var(--secondary-bg);
+    max-width: 900px; /* Increased max-width for more spacious layout */
+    min-height: 70vh; /* Min-height instead of fixed height */
+    margin: auto;
+    margin-top: 5vh; /* Adjusted margin-top */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-light); /* Softer shadow */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column;
+}
+
+.settings-header {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 1.8rem; /* Larger header text */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.vertical-divider {
+    border-right: 1px solid var(--border-color); /* Lighter divider */
+    /* Removed fixed height, let content define it */
+}
+
+.sidebar-option {
+    cursor: pointer;
+    padding: 15px 20px;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.2s ease-in-out; /* Smooth transitions */
+    border-radius: 8px; /* Slightly rounded for individual options */
+    margin-bottom: 5px; /* Spacing between options */
+}
+
+.sidebar-option:hover {
+    background-color: #f0f0f0; /* Lighter hover background */
+    color: var(--accent-color);
+}
+
+.sidebar-option.active {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(158, 10, 10, 0.3); /* Accent shadow */
+}
+
+/* Sidebar nav-link adjustments for consistency */
+.sidebar .nav-link.sub-link.active {
+    background-color: var(--accent-color); /* Highlight active sub-link */
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+.edit-profile-btn {
+    color: var(--accent-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.edit-profile-btn:hover {
+    color: #7a0707;
+}
+
+.profile-pic {
+    width: 130px; /* Slightly larger */
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color); /* Accent border */
+    box-shadow: 0 5px 15px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.info-box {
+    border: 1px solid var(--border-color);
+    border-radius: 10px; /* Softer corners */
+    background-color: var(--primary-bg); /* Light background for info */
+    padding: 10px 15px;
+    min-width: 180px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.btn-custom {
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px var(--shadow-light); /* More prominent shadow */
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    border: none; /* Remove default button border */
+}
+
+.btn-custom:hover {
+    background-color: #7a0707;
+    box-shadow: 0px 7px 20px var(--shadow-medium);
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px; /* Add some padding */
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    max-width: fit-content; /* Adjust width to content */
+    margin: 30px auto; /* Center it */
+}
+
+.qr-container img {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Form input styling */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(158, 10, 10, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .settings-container {
+        width: 95%;
+        margin-top: 5vh;
+        margin-bottom: 5vh; /* Add margin-bottom for better mobile spacing */
+        min-height: auto;
+    }
+
+    .settings-header {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .row.g-0.flex-grow-1.h-100 {
+        flex-direction: column; /* Stack sidebar and content */
+    }
+
+    .vertical-divider {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color); /* Horizontal divider for mobile */
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-option {
+        text-align: center; /* Center sidebar options */
+        padding: 10px;
+    }
+
+    .col-12.col-sm-4.col-md-3 {
+        padding: 10px 15px !important; /* Adjust padding for mobile sidebar */
+    }
+
+    .col-12.col-sm-8.col-md-9 {
+        padding: 20px 15px !important; /* Adjust padding for mobile content */
+    }
+
+    .row.mt-4 > div {
+        margin-top: 15px !important; /* Adjust spacing for stacked info boxes */
+    }
+
+    .qr-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+}
+
+/* Wrapper para di mag-overlap */
+.content-wrapper {
+  margin-left: 250px;   
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+}
+
+/* kapag collapsed ang sidebar */
+.sidebar.collapsed ~ .content-wrapper {
+  margin-left: 90px;
+}
+
+/* mobile view */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+}
