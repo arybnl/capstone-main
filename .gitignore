@@ -1,0 +1,39 @@
+# Database files - NEVER commit these
+*.sql
+*.db
+*.sqlite
+
+# Sensitive configuration
+config.php
+email_config.php
+
+# Environment files
+.env
+.env.local
+
+# Uploads and user data
+uploads/
+img/uploads/
+
+# Log files
+*.log
+error_log
+debug.log
+
+# Composer
+vendor/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
