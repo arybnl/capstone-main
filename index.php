@@ -6,6 +6,167 @@ session_start();
 require_once 'config.php';
 require_once 'email_config.php';
 require_once 'rate_limiter.php';
+require_once 'LoginSecurity.php';
+
+
+// Initialize login security
+$loginSecurity = new LoginSecurity($conn);
+
+// Get client info
+$client_ip = LoginSecurity::getClientIP();
+$user_agent = LoginSecurity::getUserAgent();
+
+// --- UPDATED Handle Login Form Submission with Security ---
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login_submit'])) {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    if (empty($email) || empty($password)) {
+        $login_error = 'Please enter both email and password.';
+        
+        // Log the attempt
+        $loginSecurity->logLoginAttempt(
+            $email, 
+            null, 
+            'failed', 
+            $client_ip, 
+            $user_agent, 
+            'Empty credentials'
+        );
+    } else {
+        // ✅ CHECK if login is allowed (rate limiting & lockout check)
+        $security_check = $loginSecurity->checkLoginAllowed($email, $client_ip);
+        
+        if (!$security_check['allowed']) {
+            // Login blocked by security
+            $login_error = $security_check['message'];
+            
+            // Log the blocked attempt
+            $loginSecurity->logLoginAttempt(
+                $email, 
+                null, 
+                'locked', 
+                $client_ip, 
+                $user_agent, 
+                $security_check['message']
+            );
+        } else {
+            // Security check passed, proceed with authentication
+            $sql = "SELECT user_id, email, password_hash, user_type, account_locked, locked_until 
+                    FROM Users WHERE email = ?";
+            
+            if ($stmt = $conn->prepare($sql)) {
+                $stmt->bind_param('s', $param_email);
+                $param_email = $email;
+
+                if ($stmt->execute()) {
+                    $stmt->store_result();
+
+                    if ($stmt->num_rows == 1) {
+                        $stmt->bind_result($user_id, $db_email, $password_hash, $user_type, $account_locked, $locked_until);
+                        
+                        if ($stmt->fetch()) {
+                            // Double-check account lock status
+                            if ($account_locked == 1 && $locked_until && strtotime($locked_until) > time()) {
+                                $minutes_left = ceil((strtotime($locked_until) - time()) / 60);
+                                $login_error = "Your account is temporarily locked. Please try again in {$minutes_left} minutes.";
+                                
+                                $loginSecurity->logLoginAttempt(
+                                    $email, 
+                                    $user_id, 
+                                    'locked', 
+                                    $client_ip, 
+                                    $user_agent, 
+                                    'Account locked'
+                                );
+                            } else if (password_verify($password, $password_hash)) {
+                                // ✅ SUCCESS - Password is correct
+                                
+                                // Clear any failed attempt counters
+                                $loginSecurity->clearFailedAttempts($email, $client_ip);
+                                
+                                // Log successful login
+                                $loginSecurity->logLoginAttempt(
+                                    $email, 
+                                    $user_id, 
+                                    'success', 
+                                    $client_ip, 
+                                    $user_agent
+                                );
+                                
+                                // Set session variables
+                                $_SESSION['user_id'] = $user_id;
+                                $_SESSION['email'] = $db_email;
+                                $_SESSION['user_type'] = $user_type;
+
+                                // Redirect based on user type
+                                switch ($user_type) {
+                                    case 'member':
+                                        header('Location: Clients/dashboard.php');
+                                        exit();
+                                    case 'trainer':
+                                        header('Location: Trainers/Trainer_Dashboard.php');
+                                        exit();
+                                    case 'admin':
+                                        header('Location: Admin/Admin_Dashboard.php');
+                                        exit();
+                                    default:
+                                        $login_error = 'Unknown user type. Please contact support.';
+                                        break;
+                                }
+                            } else {
+                                // ❌ FAILED - Wrong password
+                                $login_error = 'The password you entered was not valid.';
+                                
+                                // Record failed attempt
+                                $loginSecurity->recordFailedAttempt($email, $client_ip);
+                                
+                                // Log failed attempt
+                                $loginSecurity->logLoginAttempt(
+                                    $email, 
+                                    $user_id, 
+                                    'failed', 
+                                    $client_ip, 
+                                    $user_agent, 
+                                    'Invalid password'
+                                );
+                            }
+                        }
+                    } else {
+                        // ❌ Email not found
+                        $login_error = 'No account found with that email address.';
+                        
+                        // Still record failed attempt to prevent enumeration attacks
+                        $loginSecurity->recordFailedAttempt($email, $client_ip);
+                        
+                        // Log failed attempt
+                        $loginSecurity->logLoginAttempt(
+                            $email, 
+                            null, 
+                            'failed', 
+                            $client_ip, 
+                            $user_agent, 
+                            'Email not found'
+                        );
+                    }
+                } else {
+                    $login_error = 'Oops! Something went wrong. Please try again later.';
+                    
+                    // Log system error
+                    $loginSecurity->logLoginAttempt(
+                        $email, 
+                        null, 
+                        'failed', 
+                        $client_ip, 
+                        $user_agent, 
+                        'Database error'
+                    );
+                }
+                $stmt->close();
+            }
+        }
+    }
+}
 
 // Function to generate secure token for password reset
 function generateSecureToken() {
