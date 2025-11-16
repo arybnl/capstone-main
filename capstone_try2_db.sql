@@ -269,3 +269,27 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- 1. store assessments (historical)
+CREATE TABLE IF NOT EXISTS Assessments (
+    assessment_id VARCHAR(36) PRIMARY KEY,
+    member_id VARCHAR(36) NOT NULL,
+    full_name VARCHAR(255),
+    dob DATE,
+    sex ENUM('male','female') DEFAULT NULL,
+    height_cm DECIMAL(5,2),
+    weight_kg DECIMAL(5,2),
+    meals_per_day VARCHAR(100),
+    preferred_diet VARCHAR(255),
+    dietary_preferences TEXT,
+    allergies TEXT,
+    fitness_goals TEXT,
+    activity_level VARCHAR(255),
+    health_conditions TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (member_id) REFERENCES Members(member_id) ON DELETE CASCADE
+);
+
+ALTER TABLE Assessments
+ADD COLUMN is_archived TINYINT(1) DEFAULT 0;
+

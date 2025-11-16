@@ -49,6 +49,15 @@
             </span>
             <span class="text">Log & Track</span>
         </a>
+        <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'Admin_Login_Audit.php') ? 'active' : ''; ?>" id="loginaudit" href="Admin_Login_Audit.php">
+            <span class="icon">
+                <i class="bi bi-shield-lock"></i>
+            </span>
+            <span class="text">Login Audit</span>
+        </a>
+
+        <!-- PROFILE -->
+        <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'Profile.php') ? 'active' : ''; ?>" id="profile" href="Profile.php">        
         <!-- PROFILE -->
         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'Profile.php') ? 'active' : ''; ?>" id="profile" href="Profile.php">
             <span class="icon">
